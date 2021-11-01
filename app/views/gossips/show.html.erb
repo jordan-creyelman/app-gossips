@@ -1,18 +1,18 @@
-<div class="page">
+
 
   <p style="font-size: 22px"><u><b>Gossip n° <%=@gossip.id%></b></u></p>
+  
 
   <div class="content">
     <div class="section">
       <p>
         <b>Author:</b> <%= @gossip.user.first_name %> from the city of 
-        <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id)%>
+        
+        <%= link_to "clique ici", users_path(@gossip.id) %>
       </p>
       <p><b>Title:</b> <%= @gossip.title %></p>
       <p><b>Content:</b> <%= @gossip.content %></p>
-      <p style="font-size: 20px">
-    </div>
+     
   </div>
 
-  
 </div>
