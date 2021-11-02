@@ -23,7 +23,7 @@
       <p>
         <b>Author:</b> <%= @gossip.user.first_name %> from the city of 
         
-        <%= link_to "clique ici", users_path(@gossip.id) %>
+        <%= link_to "clique ici", user_path(@gossip.id) %>
       </p>
       <p><b>Title:</b> <%= @gossip.title %></p>
       <p><b>Content:</b> <%= @gossip.content %></p>
