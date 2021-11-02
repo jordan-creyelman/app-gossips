@@ -31,6 +31,7 @@
 
   <div class="row col">
     <% @gossips.each_with_index do |gossip, i| %>
+      
       <div class="card" style="width:18rem;">
         <h5>
           <b>Title:</b> <%=gossip.title%>
@@ -38,7 +39,9 @@
         <p><b>
           Author:</b> <%=gossip.user.first_name%><br>
         </p>
- <%= link_to "clique ici", gossips_path(gossip.id) %>
+ <%# <%= link_to "clique ici", gossips_path(gossip.id) %> 
+  <a href="<%= gossips_path(gossip.id) %>" > lien</a>
+ 
         
       </div>
     <%end%>
