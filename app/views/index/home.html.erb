@@ -41,7 +41,7 @@
 
   
 <div class="row">
-<% Gossip.all.each do |gossip| %>
+<% Gossip.all.each_with_index do |gossip,i| %>
   <div class="col-sm-4 mx-auto pt-3">
     <div class="card">
       <div class="card-body">
@@ -50,7 +50,9 @@
         <%= gossip.user.try(:first_name) %></p>
         
         <%  if current_users.first_name==gossip.user.try(:first_name) %>
-          <div class="btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Crée un potin", edit_gossip_path %></div>
+          
+    
+        <div class="btn btn-lg "><%= link_to "Edit", edit_gossip_path(gossip.id), :class => "badge badge-success"%></div>
             
       <% end %>  
       </div>
