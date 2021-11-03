@@ -42,17 +42,16 @@ require 'faker'
 # cities_array = City.all
 
 # Création de 10 users
-10.times do |i|
-  rand_fname = Faker::Name.unique.first_name
-  rand_lname = Faker::Name.unique.last_name
-  User.create!(
-    first_name: rand_fname,
-    last_name: rand_lname,
-    description: Faker::Lorem.sentence(word_count: 4),
-    email: "#{rand_fname}.#{rand_lname}@mail.com",
-    age: rand(18..77),
-  )
+20.times do |i|
+  user = User.create!(first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    description: Faker::Lorem.paragraph, 
+    email: Faker::Internet.email, 
+    age: rand(18..99), 
+   
+    password: "password")
 end
+
 users_array = User.all
 
 # Création de 20 gossips

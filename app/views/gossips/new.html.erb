@@ -1,3 +1,5 @@
+<html>
+  <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,20 +25,23 @@
   </div>
 </nav>
  
-  <p style="font-size: 22px"><u><b>Gossip n° <%=@gossip.id%></b></u></p>
-  
-
-  <div class="content">
-    <div class="section">
-      <p>
-        <%# <b>Author:</b> <%= @gossip.user.first_name %> from the city of  %>
+    <div class="page content col-7">
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <div class="form-group">
+        <%= label_tag 'Title', name = 'Title', class: 'font-weight-bold'%>
+        <%= text_field_tag 'title', nil, placeholder: 'Enter a title', class: 'form-control'%>
+        <small id="emailHelp" class="form-text text-muted">3 caracters minimum and 14 caracters maximum.</small>
+        </div>
         
-        <%= link_to "clique ici", user_path(@gossip.id) %>
-      </p>
-      <p><b>Title:</b> <%= @gossip.title %></p>
-      <p><b>Content:</b> <%= @gossip.content %></p>
-       <%= link_to "clique ici", new_gossip_path %>
-     
-  </div>
+        <div class="form-group">
+        <%= label_tag 'Content', name = 'Content' , class: 'font-weight-bold'%>
+        <%= text_area_tag 'content', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        </div>
+        <br><br>
 
-</div>
+        <%= submit_tag "Create Post", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </body>
+</html>
+© 2021 GitHub, Inc.

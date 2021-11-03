@@ -1,6 +1,7 @@
 class IndexController < ApplicationController
   def home
     @gossips = Gossip.all
+    @user = User.all
   end
   def team
 
@@ -10,5 +11,6 @@ class IndexController < ApplicationController
   end
   def welcome
     @gossips = Gossip.all
-  end  
+  end 
+  
 end
