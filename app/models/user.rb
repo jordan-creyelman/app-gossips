@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  #test like
+  has_many :likes, dependent: :destroy
    #probleme seed
   belongs_to :city,optional: true
   has_many :gossips 
@@ -8,6 +10,7 @@ class User < ApplicationRecord
   validates :password, 
   presence: true, 
   length: { minimum: 1 }
+ 
   has_secure_password
 
   

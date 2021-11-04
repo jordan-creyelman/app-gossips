@@ -47,19 +47,25 @@
       <div class="card-body">
         <h5 class="card-title"><%= gossip.title %></h5>
         <p class="card-text"><%= gossip.content %></p>
-           <div class="btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Voir le potin", gossip_path(gossip.id) %></div><br>
-
-        <%= gossip.user.try(:first_name) %></p>
-     
-        
-        <%  if current_users.try(:first_name)==gossip.user.try(:first_name) %>
+          <div class="btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Voir le potin", gossip_path(gossip.id) %></div><br>
           
-    
+        <%= gossip.user.try(:first_name) %></p>
+          <%=gossip.likecount%>
+        <%if current_users.try(:first_name)==gossip.user.try(:first_name)%> 
+            <%if gossip.like ==false%> 
+            <div class = "btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Edit", edit_gossip_path(gossip.id)%></div>
+           <%=gossip.likecount+=1%>
+           <% end %> 
+          <br>
+        
         <div class = "btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Edit", edit_gossip_path(gossip.id)%></div>
-            
+        <div class = "btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Delete" , gossip_path(gossip.id), :method => "delete" %></div>    
       <% end %>  
       </div>
     </div>
   </div>
 <%end%>
 </div>
+<%# #form action="/like" method="post" >
+        <input type="hidden" name ="like[post_id]" value="<%= gossip.id %>
+          <%# <input type="submit" name ="Like"> %> 

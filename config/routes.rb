@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :user
   resources :gossips
   resources :sessions
+  resources :like, only:[:create,:destroy]
   #get 'gossips/:id',to:'gossips#show', as: "gossips"
   #get 'gossips/', to: 'gossips#new', 
   # get '/user/:id', to: 'user#show',as: "user"

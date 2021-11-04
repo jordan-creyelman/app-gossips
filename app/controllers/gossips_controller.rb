@@ -1,7 +1,7 @@
 class GossipsController < ApplicationController
   before_action :set_gossip, only: %i[ create new ]
   def edit 
-    
+    @gossip = Gossip.all.find_by(id:params[:id])
   end
   def show
     # @gossip = Gossip.all.find_by(id:params[:id])
@@ -31,6 +31,19 @@ class GossipsController < ApplicationController
     end
     def set_gossip
       if !current_users
+        redirect_to root_path
+      end
+    end
+    def update
+      @gossip = Gossip.all.find_by(id:params[:id])
+      post=params.require(:gossip).permit(:title, :content)
+      if @gossip.update(post)
+        redirect_to root_path
+      end
+    end
+    def destroy
+      @gossip = Gossip.all.find_by(id:params[:id])
+      if @gossip.delete
         redirect_to root_path
       end
     end
