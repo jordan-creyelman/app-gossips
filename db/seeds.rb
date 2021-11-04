@@ -42,7 +42,7 @@ require 'faker'
 # cities_array = City.all
 
 # Création de 10 users
-20.times do |i|
+30.times do |i|
   user = User.create!(first_name: Faker::Name.first_name, 
     last_name: Faker::Name.last_name, 
     description: Faker::Lorem.paragraph, 
@@ -55,7 +55,7 @@ end
 users_array = User.all
 
 # Création de 20 gossips
-20.times do |i|
+30.times do |i|
   Gossip.create!(
     title:"Potin n°#{i}",
     content:Faker::ChuckNorris.fact,

@@ -65,6 +65,9 @@ ActiveRecord::Schema.define(version: 2021_10_29_061208) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_users_on_city_id"
   end
 
+  add_foreign_key "users", "cities"
 end

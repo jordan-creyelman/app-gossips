@@ -29,7 +29,7 @@
   <div class="content">
     <div class="section">
       <p>
-      author:<%=  @gossip.user.try(:first_name) %></p><%= link_to "clique ici", user_path(@gossip.id.to_i+2) %>
+      author:<%=  @gossip.user.try(:first_name) %></p><%= link_to "clique ici", user_path(@gossip.id) %>
         
       </p>
       <p><b>Title:</b> <%= @gossip.title %></p>
