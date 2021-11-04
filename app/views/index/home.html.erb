@@ -47,12 +47,15 @@
       <div class="card-body">
         <h5 class="card-title"><%= gossip.title %></h5>
         <p class="card-text"><%= gossip.content %></p>
+           <div class="btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Voir le potin", gossip_path(gossip.id) %></div><br>
+
         <%= gossip.user.try(:first_name) %></p>
+     
         
-        <%  if current_users.first_name==gossip.user.try(:first_name) %>
+        <%  if current_users.try(:first_name)==gossip.user.try(:first_name) %>
           
     
-        <div class="btn btn-lg "><%= link_to "Edit", edit_gossip_path(gossip.id), :class => "badge badge-success"%></div>
+        <div class = "btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Edit", edit_gossip_path(gossip.id)%></div>
             
       <% end %>  
       </div>

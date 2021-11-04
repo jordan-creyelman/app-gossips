@@ -1,4 +1,5 @@
 class GossipsController < ApplicationController
+  before_action :set_gossip, only: %i[ create new ]
   def edit 
     
   end
@@ -11,6 +12,8 @@ class GossipsController < ApplicationController
   end
   
     def create
+       
+      
       @gossip = Gossip.new(title:params[:title], content:params[:content], user:current_users)
       if @gossip.save
         redirect_to root_path
@@ -20,11 +23,15 @@ class GossipsController < ApplicationController
         
       end
       
-      
-
-    end
+    end  
+      # current_users
+    
      def gossip_params
       params.permit(:title, :content, :user_id)
     end
-  
+    def set_gossip
+      if !current_users
+        redirect_to root_path
+      end
+    end
 end

@@ -29,9 +29,8 @@
   <div class="content">
     <div class="section">
       <p>
-        <%# <b>Author:</b> <%= @gossip.user.first_name %> from the city of  %>
+      author:<%=  @gossip.user.try(:first_name) %></p><%= link_to "clique ici", user_path(@gossip.id.to_i+2) %>
         
-        <%= link_to "clique ici", user_path(@gossip.id) %>
       </p>
       <p><b>Title:</b> <%= @gossip.title %></p>
       <p><b>Content:</b> <%= @gossip.content %></p>
