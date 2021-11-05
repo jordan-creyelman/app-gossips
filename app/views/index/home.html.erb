@@ -48,9 +48,9 @@
         <h5 class="card-title"><%= gossip.title %></h5>
         <p class="card-text"><%= gossip.content %></p>
           <div class="btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Voir le potin", gossip_path(gossip.id) %></div><br>
-          
+        
         <%= gossip.user.try(:first_name) %></p>
-          <%=gossip.likecount%>
+          <%=gossip.title%>
         <%if current_users.try(:first_name)==gossip.user.try(:first_name)%> 
             <%if gossip.like ==false%> 
             <div class = "btn btn-outline-dark btn-lg link_no_decoration"><%= link_to "Edit", edit_gossip_path(gossip.id)%></div>
@@ -68,4 +68,4 @@
 </div>
 <%# #form action="/like" method="post" >
         <input type="hidden" name ="like[post_id]" value="<%= gossip.id %>
-          <%# <input type="submit" name ="Like"> %> 
+          <%# <input type="submit" name ="Like"> %>

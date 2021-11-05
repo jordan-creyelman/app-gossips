@@ -3,5 +3,5 @@ class Like < ApplicationRecord
    #,uniqueness: {scope:gossip_id}
   belongs_to :user
   belongs_to :gossip
-
+  
 end
